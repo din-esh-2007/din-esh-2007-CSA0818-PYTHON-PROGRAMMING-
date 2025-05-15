@@ -1,0 +1,24 @@
+appointments = {}
+
+def display_slots():
+    for time in range(9, 18):
+        status = "Booked" if time in appointments else "Available"
+        print(f"{time}:00 - {status}")
+
+def book_slot(time, patient):
+    if time not in appointments:
+        appointments[time] = patient
+        print(f"Booked {time}:00 for {patient}")
+    else:
+        print("Slot already booked.")
+
+def cancel_slot(time):
+    if time in appointments:
+        del appointments[time]
+        print(f"Canceled {time}:00 appointment.")
+    else:
+        print("No booking found.")
+
+display_slots()
+book_slot(10, "John")
+cancel_slot(10)
