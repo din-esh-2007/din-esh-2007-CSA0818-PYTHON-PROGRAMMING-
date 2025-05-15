@@ -1,0 +1,29 @@
+import pygame, sys
+
+pygame.init()
+width, height = 500, 500
+screen = pygame.display.set_mode((width, height))
+clock = pygame.time.Clock()
+
+x, y = 100, 100
+radius = 20
+dx, dy = 3, 3
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    x += dx
+    y += dy
+
+    if x + radius > width or x - radius < 0:
+        dx *= -1
+    if y + radius > height or y - radius < 0:
+        dy *= -1
+
+    screen.fill((0, 0, 0))
+    pygame.draw.circle(screen, (255, 0, 0), (x, y), radius)
+    pygame.display.flip()
+    clock.tick(60)
