@@ -1,0 +1,7 @@
+import math
+
+def unique_paths(m, n):
+    return math.comb(m + n - 2, n - 1)
+
+print("Paths (7x3):", unique_paths(7, 3))
+print("Paths (3x2):", unique_paths(3, 2))
