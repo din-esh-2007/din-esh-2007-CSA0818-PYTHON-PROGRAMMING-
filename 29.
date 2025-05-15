@@ -1,0 +1,21 @@
+accounts = {'1234': {'pin': '1111', 'balance': 1000}}
+
+def check_balance(acc):
+    print(f"Balance: {accounts[acc]['balance']}")
+
+def withdraw(acc, amount):
+    if accounts[acc]['balance'] >= amount:
+        accounts[acc]['balance'] -= amount
+        print(f"Withdrew {amount}. New balance: {accounts[acc]['balance']}")
+    else:
+        print("Insufficient funds.")
+
+def secure_login(acc, pin):
+    return accounts.get(acc, {}).get('pin') == pin
+
+# Example use
+if secure_login('1234', '1111'):
+    check_balance('1234')
+    withdraw('1234', 500)
+else:
+    print("Access denied.")
