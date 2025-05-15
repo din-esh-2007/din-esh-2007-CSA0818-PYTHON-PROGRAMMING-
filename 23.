@@ -1,0 +1,7 @@
+import pandas as pd
+import numpy as np
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Salary': np.random.randint(5000, 99000, size=4)}
+df = pd.DataFrame(data)
+filtered_df = df[df['Salary'] > 50000]
+print("Filtered Data (Salary > 50000):\n", filtered_df)
